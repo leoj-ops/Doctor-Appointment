@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/about', 'MedController@about');
+
+Route::post('/index','MedController@store');
+
+Route::get('/appointment','MedController@appointment');
+
+Route::get('/show','MedController@show')->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
